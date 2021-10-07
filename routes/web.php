@@ -24,15 +24,15 @@ $router->get('/key/revoke', 'KeyController@revoke');
 /**
  * Cart Routes
  */
-$router->get('/cart/{id}', ['middleware' => 'auth', 'uses' => 'CartController@show']);
-$router->post('/cart', ['middleware' => 'auth', 'uses' => 'CartController@store']);
-$router->put('/cart/{id}', ['middleware' => 'auth', 'uses' => 'CartController@update']);
-$router->delete('/cart/{id}', ['middleware' => 'auth', 'uses' => 'CartController@delete']);
+$router->get('/carts/{id}', ['middleware' => 'auth', 'uses' => 'CartController@show']);
+$router->post('/carts', ['middleware' => 'auth', 'uses' => 'CartController@store']);
+$router->put('/carts/{id}', ['middleware' => 'auth', 'uses' => 'CartController@update']);
+$router->delete('/carts/{id}', ['middleware' => 'auth', 'uses' => 'CartController@delete']);
 
 /**
  * Cart Item Routes
  */
-$router->get('/cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@show']);
-$router->post('/cartitem', ['middleware' => 'auth', 'uses' => 'CartItemController@store']);
-$router->put('/cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@update']);
-$router->delete('/cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@delete']);
+$router->get('cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@show']);
+$router->post('cartitem', ['middleware' => 'auth', 'uses' => 'CartItemController@store']);
+$router->put('cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@update']);
+$router->delete('cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@delete']);
