@@ -33,6 +33,6 @@ $router->delete('/cart/{id}', ['middleware' => 'auth', 'uses' => 'CartController
  * Cart Item Routes
  */
 $router->get('/cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@show']);
-$router->post('/cartitem', ['middleware' => 'auth', 'uses' => 'CartItemController@create']);
+$router->post('/cartitem', ['middleware' => 'auth', 'uses' => 'CartItemController@store']);
 $router->put('/cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@update']);
 $router->delete('/cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@delete']);
