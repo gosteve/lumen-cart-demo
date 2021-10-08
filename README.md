@@ -10,7 +10,7 @@ In order to run the service, clone the repo to a server that meets the [server r
 
 ## API
 
-### Get API key
+### Get an API key
 
 <hr>
 In order to use the cart service, you'd first need to make `POST` request to `/key` to get an API key. You need to provide two fields namely:
@@ -40,6 +40,15 @@ curl --location --request POST 'http://localhost/carts' \
 --data-urlencode 'customer_id=<YOUR_GENERATED_KEY>'
 ```
 
+### Get Cart
+
+Returns your cart object, including all associated cart items.
+
+```
+curl --location --request GET 'http://localhost/cartitems/<CART_ID>' \
+--header 'x-api-key: <YOUR_API_KEY>'
+```
+
 ### Update Cart
 
 <hr>
@@ -57,5 +66,50 @@ curl --location --request PUT 'http://localhost/carts/<CART_ID>' \
 
 ```
 curl --location --request DELETE 'http://localhost/carts/<CART_ID>' \
+--header 'x-api-key: <YOUR_API_KEY>'
+```
+
+### Create Cart Item
+
+<hr>
+
+To create a cart item you need to is pass the following form fields:
+
+-   cart_id
+-   product_id
+-   quantity
+-   price
+
+```
+curl --location --request POST 'http://localhost/cartitems' \
+--header 'x-api-key: <YOUR_API_KEY>' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'cart_id=<YOUR_CART_ID>' \
+--data-urlencode 'product_id=1' \
+--data-urlencode 'quantity=1' \
+--data-urlencode 'price=100'
+```
+
+### Update Cart Item
+
+<hr>
+
+Update a cart by passing in the followng field:
+
+-   quantity
+
+```
+curl --location --request PUT 'http://localhost/cartsitems/<CART_ITEM_ID>' \
+--header 'x-api-key: <YOUR_API_KEY>' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'quantity=2'
+```
+
+### Delete Cart Item
+
+<hr>
+
+```
+curl --location --request DELETE 'http://localhost/cartitems/<CART_ID>' \
 --header 'x-api-key: <YOUR_API_KEY>'
 ```
