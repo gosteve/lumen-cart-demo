@@ -18,8 +18,8 @@ $router->get('/', function () use ($router) {
 /**
  * Request to generate a unique key for client applications.
  */
-$router->get('/key/grant', 'KeyController@grant');
-$router->get('/key/revoke', 'KeyController@revoke');
+$router->post('/key', 'KeyController@store');
+$router->delete('/key/{id}', 'KeyController@delete');
 
 /**
  * Cart Routes
@@ -32,7 +32,7 @@ $router->delete('/carts/{id}', ['middleware' => 'auth', 'uses' => 'CartControlle
 /**
  * Cart Item Routes
  */
-$router->get('cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@show']);
-$router->post('cartitem', ['middleware' => 'auth', 'uses' => 'CartItemController@store']);
-$router->put('cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@update']);
-$router->delete('cartitem/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@delete']);
+$router->get('/cartitems/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@show']);
+$router->post('/cartitems', ['middleware' => 'auth', 'uses' => 'CartItemController@store']);
+$router->put('/cartitems/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@update']);
+$router->delete('/cartitems/{id}', ['middleware' => 'auth', 'uses' => 'CartItemController@delete']);
